@@ -6,24 +6,26 @@ export function useInView(threshold: number = 0.1) {
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold }
-    );
+ useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setIsInView(entry.isIntersecting);
+    },
+    { threshold }
+  );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+  const element = ref.current; // copy once
+
+  if (element) {
+    observer.observe(element);
+  }
+
+  return () => {
+    if (element) {
+      observer.unobserve(element);
     }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [threshold]);
+  };
+}, [threshold]);
 
   return { ref, isInView };
 }
