@@ -15,7 +15,7 @@ export default function ProjectsSection() {
         "A light weight platform built with Next.js, featuring personalised book libraries for users.",
       image: "/images/books-catalogue.png",
       technologies: ["Next.js", "TailwindCSS", "TypeScript", "PostgreSQL"],
-      liveUrl: "book-catalog-peach.vercel.app",
+      liveUrl: "http://book-catalog-peach.vercel.app",
       githubUrl: "https://github.com/Hasan-Mamoon/book-catalog",
     },
     {
