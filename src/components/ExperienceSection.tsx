@@ -8,41 +8,29 @@ export default function ExperienceSection() {
 
   const experiences = [
     {
-      company: 'TechCorp Solutions',
-      position: 'Senior Full-Stack Developer',
-      period: '2022 - Present',
-      location: 'San Francisco, CA',
-      description: 'Leading development of enterprise web applications, mentoring junior developers, and architecting scalable solutions for Fortune 500 clients.',
+      company: 'DevBerry',
+      position: 'Full-Stack Developer',
+      period: '2024 - 2025',
+      location: 'Faisalabad, PK',
+      description: 'Engineered full stack web applications in MERN and Next.js',
       achievements: [
-        'Increased application performance by 40% through optimization',
-        'Led a team of 5 developers on critical product launches',
-        'Implemented CI/CD pipelines reducing deployment time by 60%'
+        'Delivered elegant, responsive and scalable User Intefaces',
+        'Implemented robust RESTful APIs, enabling secure operations and real-time data flow',
+        
       ],
     },
     {
-      company: 'StartupXYZ',
-      position: 'Frontend Developer',
-      period: '2020 - 2022',
-      location: 'New York, NY',
-      description: 'Developed responsive web applications and collaborated with designers to create intuitive user interfaces for a fast-growing fintech startup.',
+      company: 'Fiverr',
+      position: 'Freelancer',
+      period: '2023 - Current',
+      location: 'Remote',
+      description: 'Delivered multiple projects to clients',
       achievements: [
-        'Built the entire frontend architecture from scratch',
-        'Improved user engagement by 35% through UX improvements',
-        'Integrated with 15+ third-party APIs and services'
+        'Timely delivery of projects',
+        'Multiple 5 star reviews'
       ],
     },
-    {
-      company: 'Digital Agency Pro',
-      position: 'Junior Web Developer',
-      period: '2019 - 2020',
-      location: 'Austin, TX',
-      description: 'Worked on various client projects, focusing on WordPress development, custom themes, and plugin development.',
-      achievements: [
-        'Delivered 25+ client projects on time and within budget',
-        'Developed custom WordPress themes and plugins',
-        'Maintained 98% client satisfaction rating'
-      ],
-    },
+
   ];
 
   return (
@@ -60,7 +48,7 @@ export default function ExperienceSection() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              My journey through the tech industry, building impactful solutions and growing as a developer
+              My journey building impactful solutions and growing as a developer
             </p>
           </div>
 

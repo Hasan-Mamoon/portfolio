@@ -9,28 +9,28 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform built with Next.js, featuring real-time inventory management, payment processing, and admin dashboard.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: 'Books Catalogue',
+      description: 'A light weight platform built with Next.js, featuring personalised book libraries for users.',
+      image: '/images/books-catalogue.png',
+      technologies: ['Next.js','TailwindCSS', 'TypeScript', 'PostgreSQL'],
+      liveUrl: 'book-catalog-peach.vercel.app',
+      githubUrl: 'https://github.com/Hasan-Mamoon/book-catalog',
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, team collaboration features, and advanced reporting.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: 'MindScope',
+      description: 'An AI powered journaling app built to help users reflect, track, and improve their mental well-being through journaling and data-driven insights.',
+      image: '/images/mind-scope.png',
+      technologies: ['Flask','Transformers','React', 'Node.js', 'Express', 'MongoDB','TailwindCSS'],
+      //liveUrl: 'https://www.linkedin.com/in/muhammad-hassan-mamoon-534190286/',
+      githubUrl: 'https://github.com/Hasan-Mamoon/mind-scope',
     },
     {
-      title: 'AI Content Generator',
-      description: 'Smart content generation tool powered by AI, helping content creators generate high-quality articles and social media posts.',
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Python', 'FastAPI', 'OpenAI API', 'React'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
+      title: 'Shifa',
+      description: 'A web based healthcare platform buit to create convenience for patients and doctors',
+      image: '/images/shifa.png',
+      technologies: ['React','AWS-S3' ,'Express', 'MongoDB', 'Stripe', 'Nodemailer','JitsiMeet'],
+      //liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/Hasan-Mamoon/Shifa',
     },
   ];
 
@@ -99,9 +99,9 @@ export default function ProjectsSection() {
                   </p>
                   
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
+                    {project.technologies.map((tech,index) => (
                       <span
-                        key={tech}
+                        key={index}
                         className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
                       >
                         {tech}
@@ -118,7 +118,7 @@ export default function ProjectsSection() {
               variant="outline"
               size="lg"
               className="border-2 px-8 py-3 text-lg hover:bg-blue-50"
-              onClick={() => window.open('https://github.com', '_blank')}
+              onClick={() => window.open('https://github.com/Hasan-Mamoon?tab=repositories', '_blank')}
             >
               <Github className="h-5 w-5 mr-2" />
               View All Projects

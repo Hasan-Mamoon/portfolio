@@ -31,7 +31,7 @@ export default function AboutSection() {
                   <User className="h-16 w-16 mb-6 opacity-90" />
                   <h3 className="text-2xl font-bold mb-4">Professional Journey</h3>
                   <p className="text-lg opacity-90 leading-relaxed">
-                    With 2+ years of experience in web development, I specialize in creating 
+                    With 1+ years of experience in web development, I specialize in creating 
                     digital experiences with elegant user-interface and powerful functionality.
                   </p>
                 </div>
@@ -41,7 +41,7 @@ export default function AboutSection() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Passionate about creating exceptional digital experiences
+                  Passionate about creating digital experiences
                 </h3>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
                   I&apos;m a full-stack developer with a keen eye for design and a passion for clean, 
@@ -49,8 +49,7 @@ export default function AboutSection() {
                   that users genuinely enjoy using.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to 
-                  open-source projects, or capturing moments through photography.
+                  When I&apos;m not coding, you&apos;ll find me exploring new technologies, working on personal projects, or capturing moments through photography.
                 </p>
               </div>
 

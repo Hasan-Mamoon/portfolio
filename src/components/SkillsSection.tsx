@@ -6,17 +6,17 @@ export default function SkillsSection() {
   const { ref, isInView } = useInView();
 
   const skills = [
-    { name: 'React', level: 95, category: 'Frontend' },
+    
     { name: 'TypeScript', level: 90, category: 'Language' },
     { name: 'Next.js', level: 88, category: 'Framework' },
+    { name: 'React', level: 85, category: 'Frontend' },
+    { name: 'MERN', level: 88, category: 'Framework' },
     { name: 'Node.js', level: 85, category: 'Backend' },
     { name: 'Python', level: 82, category: 'Language' },
     { name: 'PostgreSQL', level: 80, category: 'Database' },
-    { name: 'AWS', level: 75, category: 'Cloud' },
     { name: 'Docker', level: 78, category: 'DevOps' },
   ];
 
-  const categories = ['Frontend', 'Backend', 'Language', 'Framework', 'Database', 'Cloud', 'DevOps'];
   const categoryColors = {
     Frontend: 'bg-blue-500',
     Backend: 'bg-green-500',
@@ -87,7 +87,7 @@ export default function SkillsSection() {
           <div className="mt-16 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Always Learning</h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {['GraphQL', 'Kubernetes', 'Machine Learning', 'Blockchain', 'WebAssembly'].map((tech) => (
+              {['Artificial Intelligence', 'NLP', 'Machine Learning', 'Web Frameworks', 'Cloud'].map((tech) => (
                 <span
                   key={tech}
                   className="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-200 rounded-full text-gray-700 font-medium hover:from-blue-100 hover:to-cyan-100 hover:text-blue-700 transition-all duration-200"

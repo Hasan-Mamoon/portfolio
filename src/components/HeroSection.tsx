@@ -59,7 +59,7 @@ export default function HeroSection() {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com"
+              href="https://github.com/Hasan-Mamoon"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2"
@@ -67,7 +67,7 @@ export default function HeroSection() {
               <Github className="h-6 w-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/muhammad-hassan-mamoon-534190286/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2"
@@ -75,7 +75,7 @@ export default function HeroSection() {
               <Linkedin className="h-6 w-6" />
             </a>
             <a
-              href="mailto:alex@example.com"
+              href="mailto:mianhassan085@gmail.com"
               className="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2"
             >
               <Mail className="h-6 w-6" />

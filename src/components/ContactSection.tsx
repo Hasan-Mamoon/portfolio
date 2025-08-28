@@ -1,30 +1,63 @@
-'use client';
+"use client";
 
-import { useInView } from '@/hooks/useInView';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { useState } from 'react';
+import { useInView } from "@/hooks/useInView";
+import { Mail, MapPin, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function ContactSection() {
   const { ref, isInView } = useInView();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+        }),
+      });
+
+      if (!res.ok) {
+        toast.error("Server error. Please try again later.");
+        return;
+      }
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send Message. Try again later.");
+      }
+
+      console.log("Res", res);
+    } catch (error) {
+      console.log("Error", error);
+      toast.error("An error occured");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -37,7 +70,7 @@ export default function ContactSection() {
         <div
           ref={ref}
           className={`transition-all duration-1000 ${
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <div className="text-center mb-16">
@@ -46,7 +79,8 @@ export default function ContactSection() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              I&apos;m always interested in new opportunities and collaborations. Let&apos;s create something amazing together!
+              I&apos;m always interested in new opportunities and
+              collaborations. Let&apos;s create something amazing together!
             </p>
           </div>
 
@@ -58,8 +92,9 @@ export default function ContactSection() {
                   Let&apos;s start a conversation
                 </h3>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Whether you have a project in mind, want to collaborate, or just want to say hello, 
-                  I&apos;d love to hear from you. Drop me a line and I&apos;ll get back to you as soon as possible.
+                  Whether you have a project in mind, want to collaborate, or
+                  just want to say hello, I&apos;d love to hear from you. Drop
+                  me a line and I&apos;ll get back to you as soon as possible.
                 </p>
               </div>
 
@@ -70,17 +105,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">alex@example.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <Phone className="h-6 w-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">mianhassan085@gmail.com</p>
                   </div>
                 </div>
 
@@ -90,7 +115,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Location</h4>
-                    <p className="text-gray-600">San Francisco, CA</p>
+                    <p className="text-gray-600">Lahore, PK</p>
                   </div>
                 </div>
               </div>
@@ -101,7 +126,10 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name" className="text-sm font-medium text-gray-700">
+                    <Label
+                      htmlFor="name"
+                      className="text-sm font-medium text-gray-700"
+                    >
                       Name
                     </Label>
                     <Input
@@ -116,7 +144,10 @@ export default function ContactSection() {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+                    <Label
+                      htmlFor="email"
+                      className="text-sm font-medium text-gray-700"
+                    >
                       Email
                     </Label>
                     <Input
@@ -133,7 +164,10 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <Label htmlFor="message" className="text-sm font-medium text-gray-700">
+                  <Label
+                    htmlFor="message"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     Message
                   </Label>
                   <Textarea
@@ -151,9 +185,16 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3"
+                  disabled={loading}
                 >
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Message
+                  {loading ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4 mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
@@ -165,7 +206,9 @@ export default function ContactSection() {
       <footer className="mt-20 pt-8 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-gray-600">
-            <p>&copy; 2024 Hassan Mamoon. Built with Next.js and Tailwind CSS.</p>
+            <p>
+              &copy; 2025 Hassan Mamoon. Built with Next.js and Tailwind CSS.
+            </p>
           </div>
         </div>
       </footer>
