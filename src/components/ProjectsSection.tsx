@@ -95,15 +95,6 @@ export default function ProjectsSection() {
                       variant="secondary"
                       size="sm"
                       className="bg-white/90 text-gray-900 hover:bg-white"
-                      onClick={() => window.open(project.liveUrl, "_blank")}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </Button>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="bg-white/90 text-gray-900 hover:bg-white"
                       onClick={() => window.open(project.githubUrl, "_blank")}
                     >
                       <Github className="h-4 w-4 mr-2" />
